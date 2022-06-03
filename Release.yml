@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
     timeout-minutes: 45
 
     steps:
@@ -37,7 +36,6 @@ jobs:
           prerelease: false
 
       - name: Upload Crane
-        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
