@@ -22,7 +22,6 @@ jobs:
           java-version: 11
 
       - name: Build all projects
-        run: ./scripts/gradlew_recursive.sh assembleDebug
 
       - name: Create Release
         id: create_release
@@ -67,7 +66,6 @@ jobs:
       - name: Upload Jetchat
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: Jetchat/app/build/outputs/apk/debug/app-debug.apk
